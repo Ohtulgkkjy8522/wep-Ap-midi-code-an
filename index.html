@@ -3,7 +3,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MiDi Code - عالم الأنمي الدموي</title>
 
 <style>
@@ -15,23 +15,22 @@
   --text: #f5f5f5;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(ellipse at top, #390007 0%, #100000 35%, #080808 75%);
+  background:
+    radial-gradient(ellipse at top, #390007 0%, #100000 35%, #080808 75%);
   color: var(--text);
   font-family: Arial, sans-serif;
+  min-height: 100vh;
 }
 
 header {
   padding: 28px 16px;
   text-align: center;
   border-bottom: 2px solid var(--red);
-  background: rgba(0, 0, 0, .82);
+  background: rgba(0,0,0,.82);
   box-shadow: 0 5px 30px #a0002030;
 }
 
@@ -75,7 +74,8 @@ main {
   overflow: hidden;
   background: #1b1012;
   border: 2px solid #790013;
-  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%,
+    75% 95%, 25% 95%, 0 50%);
   transition: .25s;
 }
 
@@ -143,15 +143,6 @@ main {
   padding: 15px;
 }
 
-.notice {
-  margin: 25px auto 0;
-  max-width: 760px;
-  color: #aaa;
-  line-height: 1.8;
-  font-size: 13px;
-  text-align: center;
-}
-
 footer {
   margin-top: 55px;
   padding: 25px 15px;
@@ -169,31 +160,30 @@ footer strong {
   margin-bottom: 8px;
 }
 
+.notice {
+  margin: 25px auto 0;
+  max-width: 760px;
+  color: #aaa;
+  line-height: 1.8;
+  font-size: 13px;
+  text-align: center;
+}
+
 @media (max-width: 600px) {
-  .gallery {
-    gap: 7px;
-  }
-
-  .videos {
-    grid-template-columns: 1fr;
-  }
-
-  .section-title {
-    font-size: 21px;
-  }
+  .gallery { gap: 7px; }
+  .videos { grid-template-columns: 1fr; }
+  .section-title { font-size: 21px; }
 }
 </style>
 </head>
 
 <body>
-
 <header>
   <h1 class="logo">MiDi Code</h1>
   <p class="subtitle">عالم الأنمي الدموي — Anime Universe</p>
 </header>
 
 <main>
-
   <h2 class="section-title">✦ معرض شخصيات الأنمي ✦</h2>
   <section class="gallery" id="gallery"></section>
 
@@ -201,10 +191,9 @@ footer strong {
   <section class="videos" id="videos"></section>
 
   <p class="notice">
-    مرحبًا بك في MiDi Code، عالم الأنمي والشخصيات والقتالات.
-    تتم إضافة المحتويات المشتركة بتعديل الكود ونشره على GitHub.
+    تُحدَّث محتويات الموقع عند تعديل هذا الملف ونشر التغييرات على GitHub Pages.
+    لا تضع كلمات مرور أو مفاتيح سرية داخل كود الموقع.
   </p>
-
 </main>
 
 <footer>
@@ -214,8 +203,9 @@ footer strong {
 
 <script>
 /*
-  أضف روابط الصور داخل الخانات أدناه.
-  اترك "" للخانات الفارغة.
+  أضف روابط الصور هنا.
+  اترك القيمة "" للخانة التي لا تريد عرض صورة فيها.
+  استخدم روابط صور مباشرة تنتهي عادةً بـ .jpg أو .png أو .webp.
 */
 const animeImages = [
   "",
@@ -230,27 +220,19 @@ const animeImages = [
 ];
 
 /*
-  الفيديو الأول هو الرابط الذي أرسلته.
-  لإضافة فيديو YouTube آخر، ضع رابطه في إحدى الخانات.
-  لملف MP4، استخدم رابطًا مباشرًا ينتهي بـ .mp4.
+  أضف روابط الفيديو هنا:
+  YouTube: https://www.youtube.com/watch?v=VIDEO_ID
+  أو:      https://youtu.be/VIDEO_ID
+  MP4:     رابط مباشر ينتهي بـ .mp4
+
+  مثال:
+  { title: "فيديو أنمي", url: "https://www.youtube.com/watch?v=VIDEO_ID" }
 */
 const animeVideos = [
-  {
-    title: "فيديو الأنمي 1",
-    url: "https://www.youtube.com/watch?v=r2BbUBSWBAM"
-  },
-  {
-    title: "فيديو الأنمي 2",
-    url: ""
-  },
-  {
-    title: "فيديو الأنمي 3",
-    url: ""
-  },
-  {
-    title: "فيديو الأنمي 4",
-    url: ""
-  }
+  { title: "فيديو الأنمي 1", url: "" },
+  { title: "فيديو الأنمي 2", url: "" },
+  { title: "فيديو الأنمي 3", url: "" },
+  { title: "فيديو الأنمي 4", url: "" }
 ];
 
 function renderGallery() {
@@ -266,7 +248,6 @@ function renderGallery() {
       img.src = url.trim();
       img.alt = "شخصية أنمي " + (index + 1);
       img.loading = "lazy";
-
       img.onerror = () => {
         slot.replaceChildren();
         const message = document.createElement("div");
@@ -274,7 +255,6 @@ function renderGallery() {
         message.textContent = "تعذر تحميل الصورة";
         slot.appendChild(message);
       };
-
       slot.appendChild(img);
     } else {
       const empty = document.createElement("div");
@@ -304,17 +284,13 @@ function getYouTubeEmbed(url) {
         id = parsed.searchParams.get("v") || "";
       } else {
         const parts = parsed.pathname.split("/").filter(Boolean);
-
         if (["embed", "shorts", "live"].includes(parts[0])) {
           id = parts[1] || "";
         }
       }
     }
 
-    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) {
-      return "";
-    }
-
+    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) return "";
     return "https://www.youtube-nocookie.com/embed/" + id;
   } catch {
     return "";
@@ -338,7 +314,7 @@ function renderVideos() {
     if (!url) {
       const empty = document.createElement("div");
       empty.className = "video-empty";
-      empty.textContent = "ستتم إضافة فيديو هنا قريبًا";
+      empty.textContent = "أضف رابط YouTube أو MP4 في الكود";
       card.appendChild(empty);
       container.appendChild(card);
       return;
@@ -366,10 +342,8 @@ function renderVideos() {
         parsedUrl = null;
       }
 
-      if (
-        !parsedUrl ||
-        !["https:", "http:"].includes(parsedUrl.protocol)
-      ) {
+      if (!parsedUrl || parsedUrl.protocol !== "https:" &&
+          parsedUrl.protocol !== "http:") {
         const error = document.createElement("div");
         error.className = "video-empty";
         error.textContent = "الرابط غير صالح";
@@ -386,7 +360,7 @@ function renderVideos() {
         const error = document.createElement("div");
         error.className = "video-empty";
         error.textContent =
-          "استخدم رابط YouTube أو رابط MP4 مباشرًا";
+          "هذا الرابط ليس رابط YouTube معروفًا أو ملف MP4 مباشرًا";
         card.appendChild(error);
       }
     }
@@ -398,6 +372,5 @@ function renderVideos() {
 renderGallery();
 renderVideos();
 </script>
-
 </body>
 </html>
