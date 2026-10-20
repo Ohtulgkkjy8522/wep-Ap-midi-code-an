@@ -1,557 +1,376 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiDi Code - عالم الأنمي الدموي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-crimson: #ff0033;
-            --dark-crimson: #8b0000;
-            --blood-dark: #100003;
-            --panel-bg: rgba(20, 0, 5, 0.9);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiDi Code - عالم الأنمي الدموي</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Tajawal', sans-serif;
-        }
+<style>
+:root {
+  --red: #e50922;
+  --dark-red: #78000c;
+  --bg: #080808;
+  --panel: #151515;
+  --text: #f5f5f5;
+}
 
-        body {
-            background-color: var(--blood-dark);
-            color: #ffffff;
-            background-image: 
-                radial-gradient(circle at 50% 20%, rgba(255, 0, 51, 0.2) 0%, transparent 60%),
-                radial-gradient(circle at 10% 80%, rgba(139, 0, 0, 0.25) 0%, transparent 50%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+* { box-sizing: border-box; }
 
-        header {
-            background: linear-gradient(180deg, #1a0005 0%, rgba(16, 0, 3, 0.95) 100%);
-            border-bottom: 2px solid var(--primary-crimson);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 0 25px rgba(255, 0, 51, 0.4);
-        }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at top, #390007 0%, #100000 35%, #080808 75%);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
 
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 10px var(--primary-crimson), 0 0 20px var(--primary-crimson);
-            letter-spacing: 2px;
-        }
+header {
+  padding: 28px 16px;
+  text-align: center;
+  border-bottom: 2px solid var(--red);
+  background: rgba(0,0,0,.82);
+  box-shadow: 0 5px 30px #a0002030;
+}
 
-        .logo span {
-            color: var(--primary-crimson);
-        }
+.logo {
+  margin: 0;
+  color: var(--red);
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-shadow: 0 0 18px #e5092270;
+}
 
-        .btn {
-            background: rgba(255, 0, 51, 0.2);
-            border: 1px solid var(--primary-crimson);
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.subtitle {
+  color: #ccc;
+  margin: 12px 0 0;
+}
 
-        .btn:hover {
-            background: var(--primary-crimson);
-            box-shadow: 0 0 15px var(--primary-crimson);
-            transform: translateY(-2px);
-        }
+main {
+  width: min(1100px, 94%);
+  margin: 32px auto;
+}
 
-        .main-container {
-            display: grid;
-            grid-template-columns: 240px 1fr 240px;
-            gap: 20px;
-            padding: 30px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
+.section-title {
+  text-align: center;
+  color: var(--red);
+  margin: 35px 0 22px;
+  font-size: 25px;
+}
 
-        .sidebar {
-            background: var(--panel-bg);
-            border: 1px solid rgba(255, 0, 51, 0.3);
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.8);
-            height: fit-content;
-        }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 760px;
+  margin: auto;
+}
 
-        .sidebar-title {
-            color: var(--primary-crimson);
-            border-bottom: 2px solid var(--dark-crimson);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            text-align: center;
-        }
+.hex {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #1b1012;
+  border: 2px solid #790013;
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%,
+    75% 95%, 25% 95%, 0 50%);
+  transition: .25s;
+}
 
-        .side-poster {
-            margin-bottom: 15px;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid var(--dark-crimson);
-        }
+.hex:hover {
+  border-color: var(--red);
+  filter: brightness(1.2);
+  transform: scale(1.025);
+}
 
-        .side-poster img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
+.hex img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-        .side-poster-title {
-            background: rgba(0,0,0,0.85);
-            padding: 6px;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
+.hex .empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  color: #999;
+  font-size: 13px;
+}
 
-        .content-area {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
+.videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
 
-        .notice-box {
-            background: rgba(139, 0, 0, 0.35);
-            border: 1px solid var(--primary-crimson);
-            padding: 12px 20px;
-            border-radius: 6px;
-            text-align: center;
-            color: #ffcccc;
-            font-weight: bold;
-            box-shadow: inset 0 0 10px rgba(255, 0, 51, 0.3);
-        }
+.video-card {
+  background: var(--panel);
+  border: 1px solid #64101b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 22px #0008;
+}
 
-        .panel {
-            background: var(--panel-bg);
-            border: 1px solid rgba(255, 0, 51, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-        }
+.video-card h3 {
+  margin: 0;
+  padding: 14px;
+  color: #ff354b;
+  font-size: 16px;
+}
 
-        .panel-title {
-            color: var(--primary-crimson);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            border-bottom: 1px dashed var(--dark-crimson);
-            padding-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  display: block;
+  border: 0;
+}
 
-        /* Hexagonal Grid with (+) controls */
-        .hexagon-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px 0;
-        }
+.video-empty {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  background: #0b0b0b;
+  text-align: center;
+  padding: 15px;
+}
 
-        .hex-item {
-            position: relative;
-            width: 160px;
-            height: 180px;
-            margin: 10px 5px;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            background: #200008;
-            border: 2px solid var(--dark-crimson);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+footer {
+  margin-top: 55px;
+  padding: 25px 15px;
+  border-top: 1px solid #68000d;
+  text-align: center;
+  background: #050505;
+  color: #aaa;
+}
 
-        .hex-item:hover {
-            border-color: var(--primary-crimson);
-            box-shadow: 0 0 15px var(--primary-crimson);
-            transform: scale(1.05);
-        }
+footer strong {
+  display: block;
+  color: var(--red);
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
 
-        .hex-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-        }
+.notice {
+  margin: 25px auto 0;
+  max-width: 760px;
+  color: #aaa;
+  line-height: 1.8;
+  font-size: 13px;
+  text-align: center;
+}
 
-        .hex-plus {
-            font-size: 3rem;
-            color: var(--primary-crimson);
-            font-weight: bold;
-            z-index: 2;
-            text-shadow: 0 0 10px rgba(255,0,51,0.6);
-        }
-
-        .hex-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: rgba(0,0,0,0.85);
-            color: #fff;
-            padding: 5px;
-            text-align: center;
-            font-size: 0.8rem;
-            z-index: 3;
-        }
-
-        /* Video Slots Grid */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .video-slot {
-            background: rgba(10,0,2,0.9);
-            border: 2px dashed var(--dark-crimson);
-            border-radius: 6px;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .video-slot:hover {
-            border-color: var(--primary-crimson);
-            box-shadow: 0 0 10px rgba(255,0,51,0.4);
-        }
-
-        .video-slot video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-        }
-
-        .slot-plus {
-            font-size: 2.5rem;
-            color: var(--primary-crimson);
-            font-weight: bold;
-            z-index: 2;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #150005;
-            border: 2px solid var(--primary-crimson);
-            width: 90%;
-            max-width: 500px;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 30px var(--primary-crimson);
-        }
-
-        .form-group {
-            margin-bottom: 12px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            color: #ddd;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid var(--dark-crimson);
-            color: #fff;
-            border-radius: 4px;
-            outline: none;
-        }
-
-        footer {
-            margin-top: 50px;
-            background: linear-gradient(0deg, #050001 0%, #1a0005 100%);
-            border-top: 3px solid var(--primary-crimson);
-            padding: 50px 20px;
-            text-align: center;
-            box-shadow: 0 -10px 30px rgba(255, 0, 51, 0.2);
-        }
-
-        .footer-moriarty {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            font-weight: 900;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 
-                0 0 10px var(--primary-crimson),
-                0 0 25px var(--primary-crimson),
-                0 0 50px var(--dark-crimson);
-            margin-bottom: 15px;
-            animation: pulse-glow 2.5s infinite alternate;
-        }
-
-        @keyframes pulse-glow {
-            0% { text-shadow: 0 0 10px var(--primary-crimson), 0 0 20px var(--primary-crimson); }
-            100% { text-shadow: 0 0 20px var(--primary-crimson), 0 0 40px var(--primary-crimson), 0 0 60px var(--dark-crimson); }
-        }
-
-        .footer-sub {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 1024px) {
-            .main-container { grid-template-columns: 1fr; }
-            .sidebar { display: none; }
-        }
-    </style>
+@media (max-width: 600px) {
+  .gallery { gap: 7px; }
+  .videos { grid-template-columns: 1fr; }
+  .section-title { font-size: 21px; }
+}
+</style>
 </head>
+
 <body>
+<header>
+  <h1 class="logo">MiDi Code</h1>
+  <p class="subtitle">عالم الأنمي الدموي — Anime Universe</p>
+</header>
 
-    <header>
-        <div class="logo">MiDi <span>Code.</span></div>
-        <div>
-            <button class="btn" onclick="openOwnerLogin()">🔑 دخول صاحب الموقع</button>
-        </div>
-    </header>
+<main>
+  <h2 class="section-title">✦ معرض شخصيات الأنمي ✦</h2>
+  <section class="gallery" id="gallery"></section>
 
-    <div class="main-container">
-        
-        <aside class="sidebar">
-            <h3 class="sidebar-title">شخصيات بارزة</h3>
-            <div class="side-poster">
-                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop&q=80" alt="مورياتي">
-                <div class="side-poster-title">ويليام جيمس مورياتي</div>
-            </div>
-            <div class="side-poster">
-                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&auto=format&fit=crop&q=80" alt="غوجو">
-                <div class="side-poster-title">ساتورو غوجو</div>
-            </div>
-        </aside>
+  <h2 class="section-title">▶ عالم الفيديوهات</h2>
+  <section class="videos" id="videos"></section>
 
-        <main class="content-area">
+  <p class="notice">
+    تُحدَّث محتويات الموقع عند تعديل هذا الملف ونشر التغييرات على GitHub Pages.
+    لا تضع كلمات مرور أو مفاتيح سرية داخل كود الموقع.
+  </p>
+</main>
 
-            <div class="notice-box">
-                ⚠️ تنبيه: هذا الموقع محمي. خلايا المعرض ورموز الفيديوهات الثابتة لا يمكن تعديلها أو النشر فيها إلا من قِبل مالك الموقع حصرياً!
-            </div>
+<footer>
+  <strong>WILLIAM JAMES MORIARTY</strong>
+  <span>MiDi Code © 2026</span>
+</footer>
 
-            <!-- Hexagonal Honeycomb Gallery with (+) for Owner -->
-            <section class="panel">
-                <h2 class="panel-title">
-                    <span>خلايا أبطال الأنمي (المعرض الثابت)</span>
-                    <span id="ownerStatus" style="font-size:0.8rem; color:#ff0033;">(وضع الزائر)</span>
-                </h2>
-                <div class="hexagon-gallery" id="hexGallery">
-                    <!-- Dynamic Hexagon Slots -->
-                </div>
-            </section>
+<script>
+/*
+  أضف روابط الصور هنا.
+  اترك القيمة "" للخانة التي لا تريد عرض صورة فيها.
+  استخدم روابط صور مباشرة تنتهي عادةً بـ .jpg أو .png أو .webp.
+*/
+const animeImages = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+];
 
-            <!-- Video Slots Section with (+) -->
-            <section class="panel">
-                <h2 class="panel-title">عروض الفيديوهات الحصرية</h2>
-                <div class="video-grid" id="videoGrid">
-                    <!-- Dynamic Video Slots -->
-                </div>
-            </section>
+/*
+  أضف روابط الفيديو هنا:
+  YouTube: https://www.youtube.com/watch?v=VIDEO_ID
+  أو:      https://youtu.be/VIDEO_ID
+  MP4:     رابط مباشر ينتهي بـ .mp4
 
-        </main>
+  مثال:
+  { title: "فيديو أنمي", url: "https://www.youtube.com/watch?v=VIDEO_ID" }
+*/
+const animeVideos = [
+  { title: "فيديو الأنمي 1", url: "" },
+  { title: "فيديو الأنمي 2", url: "" },
+  { title: "فيديو الأنمي 3", url: "" },
+  { title: "فيديو الأنمي 4", url: "" }
+];
 
-        <aside class="sidebar">
-            <h3 class="sidebar-title">أقوى الأساطير</h3>
-            <div class="side-poster">
-                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=600&auto=format&fit=crop&q=80" alt="ليفاي">
-                <div class="side-poster-title">ليفاي أكرمان</div>
-            </div>
-            <div class="side-poster">
-                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80" alt="إيرين">
-                <div class="side-poster-title">إيرين ييغر</div>
-            </div>
-        </aside>
+function renderGallery() {
+  const gallery = document.getElementById("gallery");
+  gallery.replaceChildren();
 
-    </div>
+  animeImages.forEach((url, index) => {
+    const slot = document.createElement("div");
+    slot.className = "hex";
 
-    <!-- Owner Modal for Editing Slots -->
-    <div class="modal" id="editModal">
-        <div class="modal-content">
-            <h3 class="panel-title" id="modalTitle">تعديل الخانة</h3>
-            <form id="editForm">
-                <div class="form-group" id="inputNameGroup">
-                    <label>اسم الشخصية / العنوان:</label>
-                    <input type="text" id="slotName" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label id="fileLabel">اختر الملف (صورة أو فيديو):</label>
-                    <input type="file" id="slotFile" class="form-control" accept="image/*,video/*" required>
-                </div>
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <button type="submit" class="btn" style="flex: 1;">حفظ وثبيت بالموقع</button>
-                    <button type="button" class="btn" onclick="closeModal()" style="background: #333; border-color: #555;">إلغاء</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    if (url.trim()) {
+      const img = document.createElement("img");
+      img.src = url.trim();
+      img.alt = "شخصية أنمي " + (index + 1);
+      img.loading = "lazy";
+      img.onerror = () => {
+        slot.replaceChildren();
+        const message = document.createElement("div");
+        message.className = "empty";
+        message.textContent = "تعذر تحميل الصورة";
+        slot.appendChild(message);
+      };
+      slot.appendChild(img);
+    } else {
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "خانة أنمي " + (index + 1);
+      slot.appendChild(empty);
+    }
 
-    <footer>
-        <div class="footer-moriarty">WILLIAM JAMES MORIARTY</div>
-        <p class="footer-sub">تطوير وتصميم MiDi Code. &copy; جميع الحقوق محفوظة لمالك الموقع فقط</p>
-    </footer>
+    gallery.appendChild(slot);
+  });
+}
 
-    <script>
-        // Check if owner is logged in (session stored securely in browser)
-        let isOwner = localStorage.getItem('midi_is_owner') === 'true';
+function getYouTubeEmbed(url) {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./, "");
+    let id = "";
 
-        // Initialize 9 permanent Hexagon slots & 4 Video slots if not present
-        let hexSlots = JSON.parse(localStorage.getItem('midi_hex_slots')) || Array(9).fill(null);
-        let videoSlots = JSON.parse(localStorage.getItem('midi_video_slots')) || Array(4).fill(null);
-
-        function updateOwnerUI() {
-            document.getElementById('ownerStatus').innerText = isOwner ? "(أنت الآن صاحب الموقع - مسموح لك بالتعديل)" : "(وضع الزائر - للمشاهدة فقط)";
-            renderHexGallery();
-            renderVideoGallery();
+    if (host === "youtu.be") {
+      id = parsed.pathname.split("/").filter(Boolean)[0] || "";
+    } else if (
+      host === "youtube.com" ||
+      host === "m.youtube.com" ||
+      host === "youtube-nocookie.com"
+    ) {
+      if (parsed.pathname === "/watch") {
+        id = parsed.searchParams.get("v") || "";
+      } else {
+        const parts = parsed.pathname.split("/").filter(Boolean);
+        if (["embed", "shorts", "live"].includes(parts[0])) {
+          id = parts[1] || "";
         }
+      }
+    }
 
-        function openOwnerLogin() {
-            if(isOwner) {
-                if(confirm("هل تريد تسجيل الخروج من وضع المالك؟")) {
-                    isOwner = false;
-                    localStorage.setItem('midi_is_owner', 'false');
-                    updateOwnerUI();
-                }
-                return;
-            }
-            let pass = prompt("أدخل كلمة مرور صاحب الموقع:");
-            if(pass === "moriarty2026" || pass === "midi123") {
-                isOwner = true;
-                localStorage.setItem('midi_is_owner', 'true');
-                alert("تم تسجيل الدخول بنجاح! يمكنك الآن النقر على أي علامة (+) للتعديل والثبيت بالموقع.");
-                updateOwnerUI();
-            } else if(pass !== null) {
-                alert("كلمة المرور غير صحيحة!");
-            }
-        }
+    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) return "";
+    return "https://www.youtube-nocookie.com/embed/" + id;
+  } catch {
+    return "";
+  }
+}
 
-        let currentType = '';
-        let currentIndex = null;
+function renderVideos() {
+  const container = document.getElementById("videos");
+  container.replaceChildren();
 
-        function renderHexGallery() {
-            const grid = document.getElementById('hexGallery');
-            grid.innerHTML = '';
-            hexSlots.forEach((slot, index) => {
-                const item = document.createElement('div');
-                item.className = 'hex-item';
-                if (slot) {
-                    item.innerHTML = `
-                        <img src="${slot.img}" alt="${slot.name}">
-                        <div class="hex-overlay">${slot.name}</div>
-                    `;
-                } else {
-                    item.innerHTML = `<div class="hex-plus">+</div>`;
-                }
-                
-                if (isOwner) {
-                    item.onclick = () => openEditModal('hex', index);
-                } else {
-                    item.onclick = () => {
-                        if(!slot) alert("هذه الخانة فارغة ولم يقم صاحب الموقع بإضافة شخصية لها بعد.");
-                    };
-                }
-                grid.appendChild(item);
-            });
-        }
+  animeVideos.forEach((video, index) => {
+    const card = document.createElement("article");
+    card.className = "video-card";
 
-        function renderVideoGallery() {
-            const grid = document.getElementById('videoGrid');
-            grid.innerHTML = '';
-            videoSlots.forEach((slot, index) => {
-                const item = document.createElement('div');
-                item.className = 'video-slot';
-                if (slot) {
-                    item.innerHTML = `
-                        <video src="${slot.video}" controls muted autoplay loop></video>
-                    `;
-                } else {
-                    item.innerHTML = `<div class="slot-plus">+</div>`;
-                }
+    const heading = document.createElement("h3");
+    heading.textContent = video.title || ("فيديو الأنمي " + (index + 1));
+    card.appendChild(heading);
 
-                if (isOwner) {
-                    item.onclick = () => openEditModal('video', index);
-                }
-                grid.appendChild(item);
-            });
-        }
+    const url = (video.url || "").trim();
 
-        function openEditModal(type, index) {
-            currentType = type;
-            currentIndex = index;
-            document.getElementById('modalTitle').innerText = type === 'hex' ? `تعديل خلية الأنمي رقم (${index+1})` : `تعديل خانة الفيديو رقم (${index+1})_`;
-            document.getElementById('inputNameGroup').style.display = type === 'hex' ? 'block' : 'none';
-            document.getElementById('slotFile').value = '';
-            document.getElementById('editModal').style.display = 'flex';
-        }
+    if (!url) {
+      const empty = document.createElement("div");
+      empty.className = "video-empty";
+      empty.textContent = "أضف رابط YouTube أو MP4 في الكود";
+      card.appendChild(empty);
+      container.appendChild(card);
+      return;
+    }
 
-        function closeModal() {
-            document.getElementById('editModal').style.display = 'none';
-        }
+    const youtubeUrl = getYouTubeEmbed(url);
 
-        document.getElementById('editForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const fileInput = document.getElementById('slotFile');
-            const nameInput = document.getElementById('slotName').value;
+    if (youtubeUrl) {
+      const iframe = document.createElement("iframe");
+      iframe.className = "video-frame";
+      iframe.src = youtubeUrl;
+      iframe.title = heading.textContent;
+      iframe.loading = "lazy";
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      card.appendChild(iframe);
+    } else {
+      let parsedUrl;
 
-            if(fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    if(currentType === 'hex') {
-                        hexSlots[currentIndex] = { name: nameInput, img: event.target.result };
-                        localStorage.setItem('midi_hex_slots', JSON.stringify(hexSlots));
-                        renderHexGallery();
-                    } else {
-                        videoSlots[currentIndex] = { video: event.target.result };
-                        localStorage.setItem('midi_video_slots', JSON.stringify(videoSlots));
-                        renderVideoGallery();
-                    }
-                    closeModal();
-                    alert("تم حفظ التعديل وثبيته في الموقع بنجاح ولن يتمكن الزوار من تعديله!");
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            }
-        });
+      try {
+        parsedUrl = new URL(url);
+      } catch {
+        parsedUrl = null;
+      }
 
-        window.onload = function() {
-            updateOwnerUI();
-        };
-    </script>
+      if (!parsedUrl || parsedUrl.protocol !== "https:" &&
+          parsedUrl.protocol !== "http:") {
+        const error = document.createElement("div");
+        error.className = "video-empty";
+        error.textContent = "الرابط غير صالح";
+        card.appendChild(error);
+      } else if (/\.mp4$/i.test(parsedUrl.pathname)) {
+        const player = document.createElement("video");
+        player.className = "video-frame";
+        player.controls = true;
+        player.preload = "metadata";
+        player.playsInline = true;
+        player.src = parsedUrl.href;
+        card.appendChild(player);
+      } else {
+        const error = document.createElement("div");
+        error.className = "video-empty";
+        error.textContent =
+          "هذا الرابط ليس رابط YouTube معروفًا أو ملف MP4 مباشرًا";
+        card.appendChild(error);
+      }
+    }
+
+    container.appendChild(card);
+  });
+}
+
+renderGallery();
+renderVideos();
+</script>
 </body>
 </html>
