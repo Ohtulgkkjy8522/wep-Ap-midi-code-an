@@ -1,403 +1,81 @@
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiDi Code - عالم الأنمي الدموي</title>
+<section id="gallery">
+  <div class="section-heading">
+    <h2>Featured Gallery</h2>
+    <p>Explore the complete MiDi Code image collection.</p>
+  </div>
 
-<style>
-:root {
-  --red: #e50922;
-  --dark-red: #78000c;
-  --bg: #080808;
-  --panel: #151515;
-  --text: #f5f5f5;
-}
+  <div class="gallery">
 
-* {
-  box-sizing: border-box;
-}
+    <article class="image-card">
+      <a href="images/687474~3.JPG" target="_blank">
+        <img src="images/687474~3.JPG" alt="Gallery image 1" loading="lazy">
+      </a>
+      <h3>Gallery 01</h3>
+    </article>
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(ellipse at top, #390007 0%, #100000 35%, #080808 75%);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-}
+    <article class="image-card">
+      <a href="images/images.jpg" target="_blank">
+        <img src="images/images.jpg" alt="Gallery image 2" loading="lazy">
+      </a>
+      <h3>Gallery 02</h3>
+    </article>
 
-header {
-  padding: 28px 16px;
-  text-align: center;
-  border-bottom: 2px solid var(--red);
-  background: rgba(0, 0, 0, .82);
-  box-shadow: 0 5px 30px #a0002030;
-}
+    <article class="image-card">
+      <a href="images/687474~2.JPG" target="_blank">
+        <img src="images/687474~2.JPG" alt="Gallery image 3" loading="lazy">
+      </a>
+      <h3>Gallery 03</h3>
+    </article>
 
-.logo {
-  margin: 0;
-  color: var(--red);
-  font-size: clamp(30px, 5vw, 52px);
-  font-weight: 900;
-  letter-spacing: 3px;
-  text-shadow: 0 0 18px #e5092270;
-}
+    <article class="image-card">
+      <a href="images/cdeb6df479629d875087c44229cb2fc7.jpg" target="_blank">
+        <img src="images/cdeb6df479629d875087c44229cb2fc7.jpg" alt="Gallery image 4" loading="lazy">
+      </a>
+      <h3>Gallery 04</h3>
+    </article>
 
-.subtitle {
-  color: #ccc;
-  margin: 12px 0 0;
-}
+    <article class="image-card">
+      <a href="images/96c00eb987ebcce3c52abc0f710ed07f.jpg" target="_blank">
+        <img src="images/96c00eb987ebcce3c52abc0f710ed07f.jpg" alt="Gallery image 5" loading="lazy">
+      </a>
+      <h3>Gallery 05</h3>
+    </article>
 
-main {
-  width: min(1100px, 94%);
-  margin: 32px auto;
-}
+    <article class="image-card">
+      <a href="images/687474~1.JPG" target="_blank">
+        <img src="images/687474~1.JPG" alt="Gallery image 6" loading="lazy">
+      </a>
+      <h3>Gallery 06</h3>
+    </article>
 
-.section-title {
-  text-align: center;
-  color: var(--red);
-  margin: 35px 0 22px;
-  font-size: 25px;
-}
+    <article class="image-card">
+      <a href="images/image(3).jpg" target="_blank">
+        <img src="images/image(3).jpg" alt="Gallery image 7" loading="lazy">
+      </a>
+      <h3>Gallery 07</h3>
+    </article>
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  max-width: 760px;
-  margin: auto;
-}
+    <article class="image-card">
+      <a href="images/image(2).jpg" target="_blank">
+        <img src="images/image(2).jpg" alt="Gallery image 8" loading="lazy">
+      </a>
+      <h3>Gallery 08</h3>
+    </article>
 
-.hex {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: #1b1012;
-  border: 2px solid #790013;
-  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
-  transition: .25s;
-}
+    <article class="image-card">
+      <a href="images/image(1).jpg" target="_blank">
+        <img src="images/image(1).jpg" alt="Gallery image 9" loading="lazy">
+      </a>
+      <h3>Gallery 09</h3>
+    </article>
 
-.hex:hover {
-  border-color: var(--red);
-  filter: brightness(1.2);
-  transform: scale(1.025);
-}
+    <article class="image-card">
+      <a href="images/image.jpg" target="_blank">
+        <img src="images/image.jpg" alt="Gallery image 10" loading="lazy">
+      </a>
+      <h3>Gallery 10</h3>
+    </article>
 
-.hex img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hex .empty {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  color: #999;
-  font-size: 13px;
-}
-
-.videos {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.video-card {
-  background: var(--panel);
-  border: 1px solid #64101b;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 22px #0008;
-}
-
-.video-card h3 {
-  margin: 0;
-  padding: 14px;
-  color: #ff354b;
-  font-size: 16px;
-}
-
-.video-frame {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  display: block;
-  border: 0;
-}
-
-.video-empty {
-  aspect-ratio: 16 / 9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #777;
-  background: #0b0b0b;
-  text-align: center;
-  padding: 15px;
-}
-
-.notice {
-  margin: 25px auto 0;
-  max-width: 760px;
-  color: #aaa;
-  line-height: 1.8;
-  font-size: 13px;
-  text-align: center;
-}
-
-footer {
-  margin-top: 55px;
-  padding: 25px 15px;
-  border-top: 1px solid #68000d;
-  text-align: center;
-  background: #050505;
-  color: #aaa;
-}
-
-footer strong {
-  display: block;
-  color: var(--red);
-  font-size: 20px;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-@media (max-width: 600px) {
-  .gallery {
-    gap: 7px;
-  }
-
-  .videos {
-    grid-template-columns: 1fr;
-  }
-
-  .section-title {
-    font-size: 21px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1 class="logo">MiDi Code</h1>
-  <p class="subtitle">عالم الأنمي الدموي — Anime Universe</p>
-</header>
-
-<main>
-
-  <h2 class="section-title">✦ معرض شخصيات الأنمي ✦</h2>
-  <section class="gallery" id="gallery"></section>
-
-  <h2 class="section-title">▶ عالم الفيديوهات</h2>
-  <section class="videos" id="videos"></section>
-
-  <p class="notice">
-    مرحبًا بك في MiDi Code، عالم الأنمي والشخصيات والقتالات.
-    تتم إضافة المحتويات المشتركة بتعديل الكود ونشره على GitHub.
-  </p>
-
-</main>
-
-<footer>
-  <strong>WILLIAM JAMES MORIARTY</strong>
-  <span>MiDi Code © 2026</span>
-</footer>
-
-<script>
-/*
-  أضف روابط الصور داخل الخانات أدناه.
-  اترك "" للخانات الفارغة.
-*/
-const animeImages = [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
-];
-
-/*
-  الفيديو الأول هو الرابط الذي أرسلته.
-  لإضافة فيديو YouTube آخر، ضع رابطه في إحدى الخانات.
-  لملف MP4، استخدم رابطًا مباشرًا ينتهي بـ .mp4.
-*/
-const animeVideos = [
-  {
-    title: "فيديو الأنمي 1",
-    url: "https://www.youtube.com/watch?v=r2BbUBSWBAM"
-  },
-  {
-    title: "فيديو الأنمي 2",
-    url: ""
-  },
-  {
-    title: "فيديو الأنمي 3",
-    url: ""
-  },
-  {
-    title: "فيديو الأنمي 4",
-    url: ""
-  }
-];
-
-function renderGallery() {
-  const gallery = document.getElementById("gallery");
-  gallery.replaceChildren();
-
-  animeImages.forEach((url, index) => {
-    const slot = document.createElement("div");
-    slot.className = "hex";
-
-    if (url.trim()) {
-      const img = document.createElement("img");
-      img.src = url.trim();
-      img.alt = "شخصية أنمي " + (index + 1);
-      img.loading = "lazy";
-
-      img.onerror = () => {
-        slot.replaceChildren();
-        const message = document.createElement("div");
-        message.className = "empty";
-        message.textContent = "تعذر تحميل الصورة";
-        slot.appendChild(message);
-      };
-
-      slot.appendChild(img);
-    } else {
-      const empty = document.createElement("div");
-      empty.className = "empty";
-      empty.textContent = "خانة أنمي " + (index + 1);
-      slot.appendChild(empty);
-    }
-
-    gallery.appendChild(slot);
-  });
-}
-
-function getYouTubeEmbed(url) {
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname.replace(/^www\./, "");
-    let id = "";
-
-    if (host === "youtu.be") {
-      id = parsed.pathname.split("/").filter(Boolean)[0] || "";
-    } else if (
-      host === "youtube.com" ||
-      host === "m.youtube.com" ||
-      host === "youtube-nocookie.com"
-    ) {
-      if (parsed.pathname === "/watch") {
-        id = parsed.searchParams.get("v") || "";
-      } else {
-        const parts = parsed.pathname.split("/").filter(Boolean);
-
-        if (["embed", "shorts", "live"].includes(parts[0])) {
-          id = parts[1] || "";
-        }
-      }
-    }
-
-    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) {
-      return "";
-    }
-
-    return "https://www.youtube-nocookie.com/embed/" + id;
-  } catch {
-    return "";
-  }
-}
-
-function renderVideos() {
-  const container = document.getElementById("videos");
-  container.replaceChildren();
-
-  animeVideos.forEach((video, index) => {
-    const card = document.createElement("article");
-    card.className = "video-card";
-
-    const heading = document.createElement("h3");
-    heading.textContent = video.title || ("فيديو الأنمي " + (index + 1));
-    card.appendChild(heading);
-
-    const url = (video.url || "").trim();
-
-    if (!url) {
-      const empty = document.createElement("div");
-      empty.className = "video-empty";
-      empty.textContent = "ستتم إضافة فيديو هنا قريبًا";
-      card.appendChild(empty);
-      container.appendChild(card);
-      return;
-    }
-
-    const youtubeUrl = getYouTubeEmbed(url);
-
-    if (youtubeUrl) {
-      const iframe = document.createElement("iframe");
-      iframe.className = "video-frame";
-      iframe.src = youtubeUrl;
-      iframe.title = heading.textContent;
-      iframe.loading = "lazy";
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
-      iframe.allowFullscreen = true;
-      card.appendChild(iframe);
-    } else {
-      let parsedUrl;
-
-      try {
-        parsedUrl = new URL(url);
-      } catch {
-        parsedUrl = null;
-      }
-
-      if (
-        !parsedUrl ||
-        !["https:", "http:"].includes(parsedUrl.protocol)
-      ) {
-        const error = document.createElement("div");
-        error.className = "video-empty";
-        error.textContent = "الرابط غير صالح";
-        card.appendChild(error);
-      } else if (/\.mp4$/i.test(parsedUrl.pathname)) {
-        const player = document.createElement("video");
-        player.className = "video-frame";
-        player.controls = true;
-        player.preload = "metadata";
-        player.playsInline = true;
-        player.src = parsedUrl.href;
-        card.appendChild(player);
-      } else {
-        const error = document.createElement("div");
-        error.className = "video-empty";
-        error.textContent =
-          "استخدم رابط YouTube أو رابط MP4 مباشرًا";
-        card.appendChild(error);
-      }
-    }
-
-    container.appendChild(card);
-  });
-}
-
-renderGallery();
-renderVideos();
-</script>
-
-</body>
-</html>
+  </div>
+</section>
